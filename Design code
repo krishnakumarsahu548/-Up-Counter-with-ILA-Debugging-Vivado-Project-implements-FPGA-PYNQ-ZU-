@@ -1,0 +1,53 @@
+`timescale 1ns / 1ps
+
+module up_counter_pynq_zu_with_ila(
+    input  wire clk_p,
+    input  wire clk_n,
+    input  wire rest,
+    output wire led0,
+    output wire led1,
+    output wire led2
+);
+
+    // Differential clock buffer
+    wire clk;
+    IBUFDS clk_ibufds (
+        .O(clk),
+        .I(clk_p),
+        .IB(clk_n)
+    );
+
+    // Signals we want to observe
+    (* keep = "true" *) reg [26:0] clk_div;
+    (* keep = "true" *) reg [2:0] count;
+
+    always @(posedge clk) begin
+        if (~rest) begin
+            clk_div <= 0;
+            count   <= 0;
+        end else begin
+            clk_div <= clk_div + 1;
+            if (clk_div == 0)
+                count <= count + 1;
+        end
+    end
+
+    assign led0 = count[0];
+    assign led1 = count[1];
+    assign led2 = count[2];
+
+    // ----------------------
+    // ILA instance (auto-generated wrapper name: ila_0)
+    // After you add ILA IP in Vivado, it will create a module like ila_0.
+    // Match probe widths here with the ILA configuration.
+    // Example: probe0 = count (3 bits), probe1 = clk_div[26:0] (27 bits), probe2 = rest (1 bit)
+    // ----------------------
+    ila_0 ila_inst (
+        .clk      (clk),          // sample clock
+        .probe0   (count),        // width = 3
+        .probe1   (clk_div),      // width = 27
+        .probe2   (rest)          // width = 1
+        // add more probes if you configured them in IP
+    );
+
+endmodule
