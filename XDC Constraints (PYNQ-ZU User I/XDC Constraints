@@ -1,0 +1,16 @@
+## --- Clock 125 MHz Differential (Manual Page 13)
+set_property PACKAGE_PIN K4 [get_ports {clk_p}]
+set_property PACKAGE_PIN K3 [get_ports {clk_n}]
+set_property IOSTANDARD LVDS [get_ports {clk_p clk_n}]
+create_clock -period 8.0 -name sys_clk125 [get_ports clk_p]
+
+## --- Reset Button BTN0 (Manual Page 28)
+set_property PACKAGE_PIN AH14 [get_ports {rest}]
+set_property IOSTANDARD LVCMOS12 [get_ports {rest}]
+set_property PULLUP TRUE [get_ports {rest}]
+
+## --- LEDs (Manual Page 28)
+set_property PACKAGE_PIN B5 [get_ports {led0}]
+set_property PACKAGE_PIN A6 [get_ports {led1}]
+set_property PACKAGE_PIN B8 [get_ports {led2}]
+set_property IOSTANDARD LVCMOS12 [get_ports {led0 led1 led2}]
