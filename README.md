@@ -91,3 +91,34 @@ Arm ILA
 See waveform changes live
 <img width="1920" height="1013" alt="image" src="https://github.com/user-attachments/assets/fe13cec4-f5b2-49aa-84d6-2f6023d95afc" />
 
+# Circuit
+<img width="1823" height="648" alt="image" src="https://github.com/user-attachments/assets/c1aeac86-fcf1-464d-8c4e-4fd5b4438a9c" />
+
+# 🚀 How to Run
+
+Clone repo
+
+Open Vivado → Create Project
+
+Add HDL files & XDC
+
+Add ILA from IP Catalog
+
+Synthesize → Implement → Generate Bitstream
+
+Program device
+
+Open Hardware Manager → Debug
+
+# FPGA Resource Utilization (Vivado Report)
+Below utilization numbers are generated after synthesis & implementation for the PYNQ-ZU (XCZU5EG-1SFVC784) device.
+<img width="552" height="288" alt="image" src="https://github.com/user-attachments/assets/ef81184f-f0b6-4d5b-845f-dd7c12b9de17" />
+<img width="551" height="323" alt="image" src="https://github.com/user-attachments/assets/f494aeba-3d84-4ad0-bdaa-e194464528c6" />
+# ⏱ Timing Summary
+<img width="1032" height="252" alt="image" src="https://github.com/user-attachments/assets/9935409f-39bd-416f-823a-00ff616d4761" />
+# 🔋 Power Estimation
+<img width="1087" height="490" alt="image" src="https://github.com/user-attachments/assets/5bec655b-2d1e-4cc3-843d-8539399bd36e" />
+
+
+
+
